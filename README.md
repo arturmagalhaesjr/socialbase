@@ -1,6 +1,11 @@
 Social Base PHP Challenge
 ==========
 
+
+
+[![Build Status](https://travis-ci.org/nezkal/socialbase.svg?branch=master)](https://travis-ci.org/nezkal/socialbase)
+
+
 How to install this project
     
 > System requirements:
