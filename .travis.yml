@@ -11,6 +11,9 @@ php:
 env:
   - SYMFONY_VERSION=2.8.*
 
+services:
+  - mysql
+
 matrix:
   allow_failures:
     - php: 7.0

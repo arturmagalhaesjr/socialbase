@@ -30,3 +30,12 @@ Unit tests
 ```bash
     php bin/phpunit --configuration app/phpunit.xml.dist    
 ```  
+
+* For run the tests execute 
+
+```bash
+    php app/console doctrine:database:create --env=test        
+```  
+```bash
+    php app/console doctrine:migrations:migrate --env=test
+```  

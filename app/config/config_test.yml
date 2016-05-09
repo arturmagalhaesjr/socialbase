@@ -19,5 +19,5 @@ doctrine:
   dbal:
     host: localhost
     dbname: socialbase_test
-    user: root
-    password: 12345
+    user: travis
+    password:
