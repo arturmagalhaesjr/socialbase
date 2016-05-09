@@ -2,12 +2,6 @@ Social Base PHP Challenge
 ==========
 
 How to install this project
-
-System requirements:
-    - PHP 5.3+
-    - Composer
-    - MySQL    
-    
     
 > System requirements:
 

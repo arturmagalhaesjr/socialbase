@@ -18,6 +18,8 @@ matrix:
 before_script:
   - composer install
   - php app/console doctrine:database:create
+  - php app/console doctrine:database:create --env=test
   - php app/console doctrine:migrations:migrate --no-interaction
+  - php app/console doctrine:migrations:migrate --env=test --no-interaction
 
 script: phpunit --coverage-text --configuration app/phpunit.xml.dist
