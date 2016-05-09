@@ -1,0 +1,7 @@
+social_base_rest:
+    resource: "@SocialBaseRestBundle/Resources/config/routing.yml"
+    prefix:   /
+
+socialbase_restbundle:
+    resource: "@SocialBaseRestBundle/Resources/config/routing.yml"
+    prefix:   /api

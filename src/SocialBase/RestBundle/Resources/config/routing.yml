@@ -1,0 +1,3 @@
+socialbase_rest_message:
+    type: rest
+    resource: "@SocialBaseRestBundle/Controller/MessagesController.php"

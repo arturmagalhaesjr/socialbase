@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+{% block title %} Social Base - List messages{% endblock %}
+ {% block stylesheets %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+
+ {% endblock %}
+{% block body %}
+
+    <h1 class="text-center">List of messages</h1>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Message</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in messages %}
+                    <tr>
+                        <td><a href="{{ path('get_message', {'_format': 'html', 'id': item.id}) }}">{{ item.id }}</a></td>
+                        <td>{{ item.message }}</td>
+                        <td>{{ item.dateTime | date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}

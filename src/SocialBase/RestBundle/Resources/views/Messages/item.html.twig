@@ -1,0 +1,29 @@
+{% extends '::base.html.twig' %}
+{% block title %} Social Base - List messages{% endblock %}
+ {% block stylesheets %}
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" />
+
+ {% endblock %}
+{% block body %}
+    {#<h1 class="text-center">#Object {{ message.id }}</h1>#}
+    <h1></h1>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                #Object {{ message.id }}
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li><strong>ID: </strong> {{ message.id }}</li>
+                    <li><strong>Message: </strong> {{ message.message }}</li>
+
+                    {% if message.ip is not empty %}
+                        <li><strong>Ip: </strong> {{ message.ip }}</li>
+                    {% endif %}
+
+                    <li><small>Created in {{ message.dateTime | date }}</small></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
