@@ -148,19 +148,33 @@ class MessagesControllerTest extends WebTestCase
         $this->assertLessThan(21, sizeof($data));
     }
 
-    public function testGetMessagesJsonWithLimit()
+
+    public function testGetMessageJsonFormat()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/api/messages.json?limit=10');
+        $lipsum = new LoremIpsum();
+        $message = $lipsum->words(2);
+
+        $client = $this->addItem($message);
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-    }
 
-    public function testGetMessagesJsonWithLimitInvalid()
-    {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/api/messages.json');
+        $contentType = $client->getResponse()->headers->get('content-type');
+        $this->assertEquals('application/json', $contentType);
 
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $data = json_decode($client->getResponse()->getContent());
+
+        $this->assertObjectHasAttribute('id', $data);
+
+        $client->request('GET', '/api/messages/ ' . $data->id .  '.json');
+
+        $contentType = $client->getResponse()->headers->get('content-type');
+        $this->assertEquals('application/json', $contentType);
+
+        $this->assertObjectHasAttribute('id', $data);
+        $this->assertObjectHasAttribute('message', $data);
+        $this->assertObjectHasAttribute('datetime', $data);
+
+        $this->assertEquals($message, $data->message);
+
     }
 }
