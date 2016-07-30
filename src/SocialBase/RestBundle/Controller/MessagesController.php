@@ -149,4 +149,8 @@ class MessagesController extends FOSRestController
         return $this->handleView($this->view($id));
     }
 
+    public function optionsMessageAction ($id) {
+        return new \Symfony\Component\HttpFoundation\Response("OK");
+    }
+
 }
